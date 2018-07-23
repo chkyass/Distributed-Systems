@@ -4,17 +4,24 @@ import (
 	"fmt"
 	"mapreduce"
 	"os"
+	"strconv"
+	"strings"
+	"unicode"
 )
 
-//
-// The map function is called once for each file of input. The first
-// argument is the name of the input file, and the second is the
-// file's complete contents. You should ignore the input file name,
-// and look only at the contents argument. The return value is a slice
-// of key/value pairs.
-//
+//Split on word composed of letters
+func Split(r rune) bool {
+	return !unicode.IsLetter(r)
+}
+
 func mapF(filename string, contents string) []mapreduce.KeyValue {
-	// Your code here (Part II).
+	words := strings.FieldsFunc(contents, Split)
+
+	KVs := make([]mapreduce.KeyValue, 10)
+	for _, word := range words {
+		KVs = append(KVs, mapreduce.KeyValue{word, "1"})
+	}
+	return KVs
 }
 
 //
@@ -23,7 +30,7 @@ func mapF(filename string, contents string) []mapreduce.KeyValue {
 // any map task.
 //
 func reduceF(key string, values []string) string {
-	// Your code here (Part II).
+	return strconv.Itoa(len(values))
 }
 
 // Can be run in 3 ways:
