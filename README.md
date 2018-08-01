@@ -1,5 +1,5 @@
 # Distributed-Systems
-This repo contains solutions to the labs of MIT [course](https://pdos.csail.mit.edu/6.824/) on Distributed Systems. The avantage of this labs is that they contains pre existent tests to verify the correctness of the code
+This repo contains solutions to the labs of the MIT distributed systems [course](https://pdos.csail.mit.edu/6.824/). The avantage of this labs is that they contains pre existent tests to verify the correctness of the code
 ## MapReduce [lab1](https://pdos.csail.mit.edu/6.824/labs/lab-1.html)
 In this lab i built a MapReduce library and fault tolerant distributed systems.
 The files for this lab are in the mapreduce folder, excepting one in the main folder:
